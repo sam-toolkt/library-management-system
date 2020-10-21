@@ -1,0 +1,284 @@
+<odoo>
+	<!-- Deisgn Views -->
+
+	<record model="ir.ui.view" id="books_form_view">
+		<field name="name">books.form</field>
+		<field name="model">library.books</field>
+		<field name="arch" type="xml">
+			<form string="Books Form">
+				<sheet>
+					<group string="Book Information">
+						<field name="name"/>
+						<field name="book_name"/>
+						<field name="year"/>
+						<!-- <field name="stock_of_books"/> -->
+						<field name="librarian_id"/>
+					</group>
+					<label for="about_ids"/>
+					<field name="about_ids"/>
+
+<!-- 					<notebook>
+						<page string="Author/s">
+							<field name="author"/>
+						</page>
+						<page string="Editor/s">
+							<field name="editor"/>
+						</page>
+						<page string="Summary">
+							<field name="summary"/>
+						</page>
+					</notebook> -->
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="rental_form_view">
+		<field name="name">rentals.form</field>
+		<field name="model">library.rentals</field>
+		<field name="arch" type="xml">
+			<form string="Rental Form">
+				<sheet>
+					<group>
+						<group string="Borrower Information">
+							<!-- <field name="isbn_id"/> -->
+							<field name="name"/>
+							<field name="lib_info"/>
+							<field name="librarian_id"/>
+							<field name="active"/>
+						</group>
+
+						<group string="Schedule">
+							<field name="start_date"/>
+							<field name="end_date"/>
+							<field name="available"/>
+							<field name="taken_books" widget="progressbar"/>
+							<!-- <field name="taken_books" widget="progressbar"/> -->
+						</group>
+					</group>
+					<label for="book_ids"/>
+					<field name="book_ids"/>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="books_search_view">
+		<field name="name">books.search</field>
+		<field name="model">library.books</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="book_name"/>
+<!-- 				<field name="author"/> -->
+				<field name="name"/>
+			</search>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="books_tree_view">
+		<field name="name">books.tree</field>
+		<field name="model">library.books</field>
+		<field name="arch" type="xml">
+			<tree string="Book Tree">
+				<field name="name"/>
+				<field name="book_name"/>
+				<field name="librarian_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="rental_tree_view">
+		<field name="name">rental.tree</field>
+		<field name="model">library.rentals</field>
+		<field name="arch" type="xml">
+			<tree string="Rental Tree">
+				<field name="lib_info"/>
+				<field name="name"/>
+				<field name="book_ids"/>
+				<field name="librarian_id"/>
+				<field name="taken_books" widget="progressbar"/>
+				<!-- <field name="isbn_id"/> -->
+				<!-- <field name="taken_books" widget="progressbar"/> -->
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="about_form_view">
+		<field name="name">about.form</field>
+		<field name="model">library.about</field>
+		<field name="arch" type="xml">
+			<form string="About Form">
+				<sheet>
+					<group string="About">
+						<field name="author"/>
+						<field name="editor"/>
+						<field name="summary"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="about_tree_view">
+		<field name="name">about.tree</field>
+		<field name="model">library.about</field>
+		<field name="arch" type="xml">
+			<tree string="About Tree">
+				<field name="author"/>
+				<field name="editor"/>
+				<field name="summary"/>
+			</tree>
+		</field>
+	</record>
+
+
+	<!-- <record model="ir.ui.view" id="librarian_form_view">
+		<field name="name">librarian.form</field>
+		<field name="model">library.librarian</field>
+		<field name="arch" type="xml">
+			<form string="Librarian Form">
+				<sheet>
+					<group string="Personal Information">
+						<group>
+							<field name="name"/>
+							<field name="lname"/>
+							<field name="address"/>
+						</group>
+						<group>
+							<field name="phone"/>
+							<field name="email"/>
+							<field name="lib_info"/>
+					</group>
+				</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="librarian_tree_view">
+		<field name="name">libarian.tree</field>
+		<field name="model">library.librarian</field>
+		<field name="arch" type="xml">
+			<tree string="Librarian Tree">
+				<field name="lib_info"/>
+				<field name="name"/>
+				<field name="lname"/>
+				<field name="email"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="member_form_view">
+		<field name="name">member.form</field>
+		<field name="model">library.members</field>
+		<field name="arch" type="xml">
+			<form string="Member Form">
+				<sheet>
+					<group string="Personal Information">
+						<group>
+							<field name="name"/>
+							<field name="lname"/>
+							<field name="address"/>
+						</group>
+						<group>
+							<field name="visit_info"/>
+							<field name="phone"/>
+							<field name="email"/>
+					</group>
+				</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="member_tree_view">
+		<field name="name">member.tree</field>
+		<field name="model">library.members</field>
+		<field name="arch" type="xml">
+			<tree string="Librarian Tree">
+				<field name="visit_info"/>
+				<field name="name"/>
+				<field name="lname"/>
+				<field name="email"/>
+			</tree>
+		</field>
+	</record>
+
+ -->
+	<!-- Acction Window -->
+
+	<record model="ir.actions.act_window" id="books_list_action">
+		<field name="name">Books</field>
+		<field name="res_model">library.books</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create the first book
+			</p>
+		</field>
+	</record>
+
+	<menuitem id="main_library_menu" name="Brussel's Library"/>
+	<menuitem id="library_menu" name="Library" parent="main_library_menu"/>
+	<menuitem id="books_menu" name="Books" parent="library_menu" action="books_list_action"/>
+
+	<record model="ir.actions.act_window" id="rentals_list_actions">
+		<field name="name">Rentals</field>
+		<field name="res_model">library.rentals</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="rentals_menu" name="Rent a Book" parent="library_menu" action="rentals_list_actions"/>
+
+	<!-- <record model="ir.actions.act_window" id="member_list_action">
+		<field name="name">Members</field>
+		<field name="res_model">library.members</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create the new members
+			</p>
+		</field>
+	</record>
+
+	<menuitem id="members_menu" name="Members" parent="main_library_menu"/>
+	<menuitem id="member" name="Register" parent="members_menu" action="member_list_action"/>
+
+
+
+
+	<record model="ir.actions.act_window" id="librarian_list_action">
+		<field name="name">Librarian</field>
+		<field name="res_model">library.librarian</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create the new library administrator
+			</p>
+		</field>
+	</record>
+
+	<menuitem id="librarian" name="Librarian" parent="members_menu" action="librarian_list_action"/> -->
+
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
